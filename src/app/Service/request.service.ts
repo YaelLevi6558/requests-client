@@ -9,7 +9,6 @@ import { environment } from '../../environment';
 export class RequestService {
   private baseUrl = environment.BASE_URL;
 
-  //  BASE_URL = 'http://localhost:5223/api/Requests';
 
   constructor(private httpClient: HttpClient) {
   }
