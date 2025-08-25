@@ -19,7 +19,7 @@ export class AddRequestComponent {
   ngOnInit(): void {
     this.requestForm = this.fb.group({
       name: ['', Validators.required],
-      subject: ['', [Validators.required, Validators.minLength(5)]], // חובה + מינימום 5 תווים
+      subject: ['', [Validators.required, Validators.minLength(5)]], 
       content: ['']
     });
   }
