@@ -1,4 +1,6 @@
-<app-add-request></app-add-request>
+<button pButton type="button" label="הוסף פנייה" icon="pi pi-plus" class="p-button-rounded p-button-outlined"
+    (click)="displayAdd=true"></button>
+<app-add-request [(display)]="displayAdd"></app-add-request>
 
 <div class="card">
   <p-table

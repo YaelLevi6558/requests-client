@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RequestService } from '../../Service/request.service';
 import { Request } from '../../Models/request';
@@ -8,9 +8,10 @@ import { Request } from '../../Models/request';
   styleUrls: ['./add-request.component.css']
 })
 export class AddRequestComponent {
-  requestForm!: FormGroup;  // הטופס
-  display: boolean = false;
-  constructor(
+  requestForm!: FormGroup;  
+  @Output() displayChange = new EventEmitter<boolean>();
+
+  @Input() display: boolean = false;   constructor(
     private fb: FormBuilder,
     private requestService: RequestService
   ) { }
@@ -29,6 +30,7 @@ export class AddRequestComponent {
       this.requestService.AddRequest(newRequest).subscribe({
         next: (res) => {
           alert('בקשה נוספה בהצלחה!');
+          this.closeDialog()
           this.requestForm.reset();
           this.display = false;
           window.location.reload();
@@ -41,4 +43,19 @@ export class AddRequestComponent {
       });
     }
   }
+    closeDialog() {
+    this.display = false;
+    this.displayChange.emit(this.display); 
+  }
+  get name() {
+  return this.requestForm.get('name');
+}
+
+get subject() {
+  return this.requestForm.get('subject');
+}
+
+get content() {
+  return this.requestForm.get('content');
+}
 }

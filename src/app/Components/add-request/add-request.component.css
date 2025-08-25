@@ -15,16 +15,16 @@ body, .p-dialog, .p-fluid {
 
 .styled-input:focus, .styled-textarea:focus {
   outline: none;
-  border-color: #6366f1; /* כחול-סגול יפה */
+  border-color: #6366f1; 
   box-shadow: 0 0 6px rgba(99, 102, 241, 0.4);
   background: #fff;
 }
 
 label {
-  color: #374151; /* טקסט כהה ואלגנטי */
+  color: #374151; 
 }
 
 .p-error {
   font-size: 0.85rem;
-  color: #dc2626; /* אדום נעים לעין */
+  color: #dc2626; 
 }
