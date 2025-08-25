@@ -14,11 +14,11 @@ export class RequestService {
   }
 
   GetRequest(): Observable<Request[]> {
-    return this.httpClient.get<Request[]>(`${this.BASE_URL}/getRequest`);
+    return this.httpClient.get<Request[]>(`${this.BASE_URL}`);
   }
 
   AddRequest(request: Request): Observable<Request> {
-    return this.httpClient.post<Request>(`${this.BASE_URL}/addRequest`, request);
+    return this.httpClient.post<Request>(`${this.BASE_URL}`, request);
   }
 }
 
