@@ -1,0 +1,28 @@
+<app-add-request></app-add-request>
+
+<div class="card">
+  <p-table
+      [value]="requests"
+      [paginator]="true"
+      [rows]="5"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [rowsPerPageOptions]="[5, 10, 20]"
+  >
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width:25%">Name</th>
+              <th style="width:25%">Subject</th>
+              <th style="width:25%">Content</th>
+              <th style="width:25%">CreatedAt</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-request>
+          <tr>
+              <td>{{ request.name }}</td>
+              <td>{{ request.subject }}</td>
+              <td>{{ request.content }}</td>
+              <td>{{ request.createdAt | date:'short' }}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

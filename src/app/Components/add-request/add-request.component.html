@@ -1,0 +1,35 @@
+<p-dialog header="הוספת פנייה חדשה" [(visible)]="display" [modal]="true" [closable]="true"
+    [style]="{width: '500px', borderRadius: '12px'}" [breakpoints]="{'640px': '95vw'}">
+    <form [formGroup]="requestForm" (ngSubmit)="onSubmit()" class="p-fluid">
+        <div class="p-field">
+            <label for="name" class="p-d-block font-bold mb-2">שם</label>
+            <input id="name" type="text" pInputText formControlName="name" class="styled-input">
+            <small *ngIf="requestForm.get('name')?.invalid && requestForm.get('name')?.touched" class="p-error">
+                חובה למלא שם
+            </small>
+        </div>
+
+        <div class="p-field">
+            <label for="subject" class="p-d-block font-bold mb-2">נושא</label>
+            <input id="subject" type="text" pInputText formControlName="subject" class="styled-input">
+            <small *ngIf="requestForm.get('subject')?.invalid && requestForm.get('subject')?.touched" class="p-error">
+                חובה למלא נושא לפחות 5 תווים
+            </small>
+        </div>
+
+        <div class="p-field">
+            <label for="content" class="p-d-block font-bold mb-2">תוכן</label>
+            <textarea id="content" pInputTextarea formControlName="content" rows="5" class="styled-textarea"></textarea>
+        </div>
+
+        <p-footer class="p-d-flex p-jc-between">
+            <button pButton type="submit" label="שלח בקשה" icon="pi pi-check" class="p-button-success"
+                [disabled]="requestForm.invalid"></button>
+            <button pButton type="button" label="ביטול" icon="pi pi-times" class="p-button-secondary"
+                (click)="display=false"></button>
+        </p-footer>
+    </form>
+</p-dialog>
+
+<button pButton type="button" label="הוסף פנייה" icon="pi pi-plus" class="p-button-rounded p-button-outlined"
+    (click)="display=true"></button>
